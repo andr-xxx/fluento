@@ -1,11 +1,21 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import preact from '@preact/preset-vite'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 export default defineConfig(({ mode }) => ({
   plugins: [
     preact()
   ],
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss,
+        autoprefixer,
+      ],
+    },
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
